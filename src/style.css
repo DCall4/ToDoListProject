@@ -1,0 +1,55 @@
+:root {
+    --em50: #ecfdf5;
+    --em100: #d1fae5;
+    --em200: #a7f3d0;
+    --em300: #6ee7b7;
+    --em400: #34d399;
+    --em500: #10b981;
+    --em600: #059669;
+    --em700: #047857;
+    --em800: #065f46;
+    --em900: #064e3b;
+}
+
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+.mainContentDiv {
+    display: flex;
+    width: 100vw;
+}
+
+.header {
+    width: 100vw;
+    height: 5vh;
+    display: flex;
+    background-color: var(--em600);
+}
+
+.leftPanel {
+    width: 25vw;
+    height: 90vh;
+    background-color: var(--em500);
+}
+
+.rightPanel {
+    width: 75vw;
+    height: 90vh;
+    background-color: var(--em200);
+}
+
+.footer {
+    width: 100vw;
+    height: 5vh;
+    text-align: center;
+    background-color: var(--em600);
+}
+
+.taskListDiv {
+    height: 75vh;
+}
+
