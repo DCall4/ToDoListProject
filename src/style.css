@@ -18,6 +18,11 @@ body {
     display: flex;
 }
 
+.task {
+    display: flex;
+    justify-content: space-around;
+}
+
 .mainContentDiv {
     display: flex;
     width: 100vw;

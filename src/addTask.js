@@ -1,14 +1,14 @@
-const addTaskItem = function(text, date, todoItems) {
+const addTaskItem = function(text, date, project, todoItems) {
     const taskListDiv = document.querySelector('.taskListDiv');
     
     const task = {
         name: text,
         date: date,
+        project: project,
         id: Date.now(),
     };
     
     todoItems.push(task);
-    console.log(todoItems);
 };
 
 export default addTaskItem

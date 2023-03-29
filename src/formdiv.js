@@ -1,12 +1,12 @@
 import addTaskItem from "./addTask";
+import taskListGenerator from "./taskListGenerator";
 
 const formdiv = function(todoItems, projectItems) {
-    const content = document.querySelector("#content");
     const taskContent = document.querySelector('.taskContent');
 
-    const taskForm = document.createElement('form');
-    taskForm.classList.add('taskForm');
-    content.appendChild(taskForm);
+    const taskForm = document.querySelector('.taskForm');
+
+    taskForm.textContent = '';
 
     const taskTitle = document.createElement('input');
     taskTitle.classList.add('input', 'taskTitle');
@@ -24,7 +24,7 @@ const formdiv = function(todoItems, projectItems) {
 
     projectItems.forEach((option) => {
         taskProject.add(
-            new Option(option.text, option.text)
+            new Option(option, option)
         );
     });
     taskForm.appendChild(taskProject);
@@ -39,20 +39,10 @@ const formdiv = function(todoItems, projectItems) {
 
         const date = taskDueDate.value.trim();
         const text = taskTitle.value.trim();
+        const project = taskProject.value.trim();
         if (text !== '') {
-            addTaskItem(text, date, todoItems);
-            const taskTemp = document.createElement('div');
-            const taskTitleTemp = document.createElement('div');
-            const taskDate = document.createElement('div');
-            taskTemp.appendChild(taskDate);
-            taskTemp.appendChild(taskTitleTemp);
-
-            taskTemp.classList.add('task');
-            taskTitleTemp.textContent = text;
-            taskDate.textContent = date;
-            console.log(1);
-            taskContent.appendChild(taskTemp);
-            console.log(2);
+            addTaskItem(text, date, project, todoItems);
+            taskListGenerator(todoItems, projectItems);
             taskTitle.value = '';
             taskTitle.focus();
         }
