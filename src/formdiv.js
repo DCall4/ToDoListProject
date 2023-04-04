@@ -2,7 +2,6 @@ import addTaskItem from "./addTask";
 import taskListGenerator from "./taskListGenerator";
 
 const formdiv = function(todoItems, projectItems) {
-    const taskContent = document.querySelector('.taskContent');
 
     const taskForm = document.querySelector('.taskForm');
 
@@ -17,6 +16,7 @@ const formdiv = function(todoItems, projectItems) {
     const taskDueDate = document.createElement('input');
     taskDueDate.classList.add('input', 'taskDueDate');
     taskDueDate.setAttribute('type', 'date');
+    taskDueDate.setAttribute('required', '');
     taskForm.appendChild(taskDueDate);
 
     const taskProject = document.createElement('select');

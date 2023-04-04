@@ -3,6 +3,7 @@ import projectTab from "./projectTab";
 
 const projectformdiv = function(projectItems, todoItems) {
     const content = document.querySelector('#content');
+    const select = document.querySelector('.taskProject');
 
     const projectForm = document.querySelector('.projectForm');
 
@@ -23,11 +24,17 @@ const projectformdiv = function(projectItems, todoItems) {
         const text = projectTitle.value.trim();
         if (text !== '') {
             projectItems.push(text);
-            console.log(projectItems);
+            localStorage.setItem("projectItems", JSON.stringify(projectItems));
 
             projectTitle.value = '';
             projectTitle.focus();
-            formdiv(todoItems, projectItems);
+
+            //add new project to select input
+            let projectOption = document.createElement('option');
+            projectOption.setAttribute('value', text);
+            projectOption.textContent = text;
+            select.appendChild(projectOption);
+
             projectTab(projectItems, todoItems);
         }
     })

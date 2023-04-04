@@ -15,46 +15,75 @@ body {
     margin: 0;
     width: 100vw;
     height: 100vh;
-    display: flex;
 }
 
-.task {
-    display: flex;
-    justify-content: space-around;
-}
-
-.mainContentDiv {
-    display: flex;
+#content {
+    margin: 0;
     width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 1fr 10fr;
 }
 
 .header {
-    width: 100vw;
-    height: 5vh;
-    display: flex;
-    background-color: var(--em600);
+    background-color: var(--em800);
+    grid-column: 1 / span 2;
+    text-align: center;
+}
+form {
+    margin: 1vh;
 }
 
-.leftPanel {
-    width: 25vw;
-    height: 90vh;
+input,
+select {
+    margin-left: 0.25vw;
+    margin-right: 0.25vw;
+    background: #fff1f2;
+    border-radius: 4px;
+}
+
+button {
+    background-color:#fff1f2;
+    border: none;
+    box-shadow: 2px 2px 2px 1px;
+    border-radius: 4px;
+}
+.leftFilterDiv {
     background-color: var(--em500);
 }
 
-.rightPanel {
-    width: 75vw;
-    height: 90vh;
+.taskContent {
     background-color: var(--em200);
 }
 
-.footer {
-    width: 100vw;
-    height: 5vh;
-    text-align: center;
-    background-color: var(--em600);
+.isDone {
+    text-decoration: line-through;
+    background-color: var(--em200);
 }
 
-.taskListDiv {
-    height: 75vh;
+.task {
+    display: grid;
+    grid-template-columns: 6fr 3fr 3fr 1fr 1fr;
+    gap: 0.5vh;
+    margin: 0.5vh;
+    padding: 0.5vh;
+    background-color: var(--em50);
 }
 
+.projectTab {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+}
+
+.projectTab,
+.permTab {
+    background-color: var(--em400);
+    padding: 0.5vh 1vh 0.5vh 1vh;
+    margin: 0.25vh 0vh 0.25vh;
+}
+
+.highlightDiv {
+    background-color: var(--em200);
+    padding: 1vh;
+}
