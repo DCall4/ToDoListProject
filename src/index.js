@@ -24,5 +24,5 @@ setupDivs(todoItems, projectItems);
 formdiv(todoItems, projectItems);
 projectformdiv(projectItems, todoItems);
 projectTab(projectItems, todoItems);
-taskListGenerator(todoItems, projectItems);
+taskListGenerator(todoItems, projectItems, todoItems);
 

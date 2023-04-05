@@ -34,7 +34,7 @@ const setupDivs = function(todoItems, projectItems) {
                 todoItems.splice(i,1);
             }
         };
-        taskListGenerator(todoItems, projectItems);
+        taskListGenerator(todoItems, projectItems, todoItems);
         localStorage.setItem("todoItems", JSON.stringify(todoItems));
         let highLighted = document.querySelector('.highlightDiv');
 
@@ -59,7 +59,7 @@ const setupDivs = function(todoItems, projectItems) {
     console.log(allTaskDiv);
 
     allTaskDiv.addEventListener('click', event => {
-        taskListGenerator(todoItems, projectItems);
+        taskListGenerator(todoItems, projectItems, todoItems);
         let highLighted = document.querySelector('.highlightDiv');
 
         highLighted.classList.remove('highlightDiv');
@@ -80,7 +80,7 @@ const setupDivs = function(todoItems, projectItems) {
                 return element;
             }
         })
-        taskListGenerator(isThisWeek, projectItems);
+        taskListGenerator(isThisWeek, projectItems, todoItems);
         let highLighted = document.querySelector('.highlightDiv');
 
         highLighted.classList.remove('highlightDiv');
@@ -100,7 +100,7 @@ const setupDivs = function(todoItems, projectItems) {
                 return element;
             }
         })
-        taskListGenerator(todayTest, projectItems);
+        taskListGenerator(todayTest, projectItems, todoItems);
         let highLighted = document.querySelector('.highlightDiv');
 
         highLighted.classList.remove('highlightDiv');
@@ -119,12 +119,31 @@ const setupDivs = function(todoItems, projectItems) {
                 return element;
             }
         })
-        taskListGenerator(overdueTodoItems, projectItems);
+        taskListGenerator(overdueTodoItems, projectItems, todoItems);
         let highLighted = document.querySelector('.highlightDiv');
 
         highLighted.classList.remove('highlightDiv');
         overdueTasks.classList.add('highlightDiv');
     })
+    //div for important task filter
+    const importantTasks = document.createElement('div');
+    importantTasks.classList.add('permTab');
+    importantTasks.textContent = "Important Tasks";
+    filterContainer.appendChild(importantTasks);
+
+    importantTasks.addEventListener('click', event => {
+        let importantTodoItems = todoItems.filter (function (element) {
+            if(element.importance == 'true'){
+            return element
+            };
+        });
+        taskListGenerator(importantTodoItems, projectItems, todoItems);
+        let highLighted = document.querySelector('.highlightDiv');
+
+        highLighted.classList.remove('highlightDiv');
+        importantTasks.classList.add('highlightDiv');
+    })
+
 }
 
 export default setupDivs

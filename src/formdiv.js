@@ -29,6 +29,13 @@ const formdiv = function(todoItems, projectItems) {
     });
     taskForm.appendChild(taskProject);
 
+    const taskImportance = document.createElement('select');
+    taskImportance.classList.add('input', 'taskImportance');
+    taskImportance.add(new Option('Is this Task Important?', false));
+    taskImportance.add(new Option('Yes', true));
+    taskImportance.add(new Option('No', false));
+    taskForm.appendChild(taskImportance);
+
     const taskBtn = document.createElement('input');
     taskBtn.classList.add('inputBtn');
     taskBtn.setAttribute('type','submit');
@@ -40,9 +47,10 @@ const formdiv = function(todoItems, projectItems) {
         const date = taskDueDate.value.trim();
         const text = taskTitle.value.trim();
         const project = taskProject.value.trim();
+        const importance = taskImportance.value;
         if (text !== '') {
-            addTaskItem(text, date, project, todoItems);
-            taskListGenerator(todoItems, projectItems);
+            addTaskItem(text, date, project, importance, todoItems);
+            taskListGenerator(todoItems, projectItems, todoItems);
             taskTitle.value = '';
             taskTitle.focus();
         }

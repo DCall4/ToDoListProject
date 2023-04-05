@@ -13,7 +13,6 @@ const taskExpand = function(taskTemp, element, todoItems, projectItems) {
 
     taskNotes.addEventListener('change', event => {
         element.notes = taskNotes.value;
-        localStorage.setItem("todoItems", JSON.stringify(todoItems));
     })
 
 };

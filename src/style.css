@@ -87,3 +87,7 @@ button {
     background-color: var(--em200);
     padding: 1vh;
 }
+
+.important {
+    border-left: 1vw solid #be123c;
+}

@@ -27,14 +27,14 @@ const projectTab = function(projectItems, todoItems) {
             let highLighted = document.querySelector('.highlightDiv');
             highLighted.classList.remove('highlightDiv');
             taskDiv.classList.add('highlightDiv');
-            taskListGenerator(todoItems, projectItems);
+            taskListGenerator(todoItems, projectItems, todoItems);
         })
 
         projectTextDiv.addEventListener('click', event => {
             let projectTabArray = todoItems.filter ( function (element) {
                 return element.project == project;
             })
-            taskListGenerator(projectTabArray, projectItems);  
+            taskListGenerator(projectTabArray, projectItems, todoItems);  
             let highLighted = document.querySelector('.highlightDiv');
 
             highLighted.classList.remove('highlightDiv');
